@@ -1,0 +1,13 @@
+<h1>Result</h1>
+
+<% if @english_word && @attempt_match %>
+  <h2>Congratulations! <%= params[:answer] %> is a valid English word</h2>
+<% elsif @attempt_match %>
+  <h2>Sorry but <%= params[:answer] %> does not seem to be a valid English word...</h2>
+<% else %>
+  <h2>Sorry but <%= params[:answer] %> can't be built out of <%= params[:letters] %></h2>
+<% end %>
+
+<h2>Your score is <%= session[:score] %></h2>
+
+<%= link_to 'Play again', new_path %>
